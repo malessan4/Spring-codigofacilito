@@ -1,6 +1,8 @@
 package com.codigofacilito.ejemplos.controllers;
 
-import org.springframework.ui.Model
+import java.util.List;
+
+import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,11 @@ public class IndexControllers {
 
     @GetMapping(value = "/")
     public String index(Model model) {
+        model.addAttribute("titulo", "soy el titulo");
+        model.addAttribute("saludo","Hola codigo facilito");
+        model.addAttribute("show", false);
+        List<String> series = List.of("Dark", "Breaking Bad", "Walking Dead");
+        model.addAttribute("series", series);
         return "index";
 
     }
